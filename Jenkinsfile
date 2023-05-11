@@ -18,9 +18,15 @@ pipeline {
 
 //       }
 //     }
-    stage('Build') {
+    stage('Build Whitelists') {
           steps {
             sh 'docker-compose -f ./globalwhitelist/docker-compose.yaml up -d --build'
+           
+        }
+    }
+    stage('Build Odoo') {
+          steps {
+            
             sh 'docker-compose -f test.yaml up -d --build'
         }
     }
